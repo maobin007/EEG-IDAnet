@@ -1,0 +1,45 @@
+# Model
+network: IDAnet
+network_args:
+  eeg_chans: 3
+  samples: 1000
+  kerSize: 64
+  F1: 16
+  D1: 2
+  D2: 2
+  kerSize_Tem: [21, 48]
+  poolSize1: 8
+  poolSize2: 8
+#  r: 3
+  depth: 1
+  num_heads: 5
+  attn_type: 'prob'
+  d_ff: 2
+  use_conv: False
+  attn_dropout: 0.1
+  ddropout: 0.1
+  factor: 3
+  act: 'elu'
+  dropout_dep: 0.1
+  n_classes: 4
+# Data
+data_path: E:/data_mb/data/BCICIV_2b/
+out_folder: E:/EEG_IDAnet/output/bci_iv_2b
+dataset: BCICIV_2b
+tmin: 0
+tmax: 4
+
+# Training
+preferred_device: gpu
+nGPU: 0
+random_seed: 0
+
+batch_size: 32
+
+epochs: 2500
+
+lr: 0.0006
+
+# Data augmentation
+num_classes: 4
+num_segs: 8
